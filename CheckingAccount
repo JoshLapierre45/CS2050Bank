@@ -1,0 +1,33 @@
+public class CheckingAccount extends Account {
+    private double overdraftLimit;
+
+    // Constructor
+    public CheckingAccount(String accountNumber, String accountHolderName, double balance, double overdraftLimit) {
+        super(accountNumber, accountHolderName, balance);
+        this.overdraftLimit = overdraftLimit;
+    }
+
+    // Getter and Setter for overdraftLimit
+    public double getOverdraftLimit() {
+        return overdraftLimit;
+    }
+
+    public void setOverdraftLimit(double overdraftLimit) {
+        this.overdraftLimit = overdraftLimit;
+    }
+
+    // Implement deposit and withdraw methods
+    
+    public void deposit(double amount) {
+        setBalance(getBalance() + amount);
+    }
+
+    
+    public void withdraw(double amount) {
+        if (amount <= getBalance() + overdraftLimit) {
+            setBalance(getBalance() - amount);
+        } else {
+            System.out.println("Overdraft limit exceeded.");
+        }
+    }
+}
