@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="CS2050Bank">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$" />
+      <root url="file://$PROJECT_DIR$" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$" recursive="false" />
+  </library>
+</component>

@@ -1,0 +1,36 @@
+import java.util.ArrayList;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+import java.io.IOException;
+
+public class AccountStack<T extends Account> {
+    private ArrayList<T> stack;
+
+    public AccountStack() {
+        stack = new ArrayList<>();
+    }
+
+    public void push(T account) {
+        stack.add(account);
+    }
+
+    public T pop() {
+        if (!isEmpty()) {
+            return stack.remove(stack.size() - 1);
+        }
+        return null;
+    }
+
+    public boolean isEmpty() {
+        return stack.isEmpty();
+    }
+
+    public void writeToFile(String fileName) {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileName))) {
+            oos.writeObject(stack);
+            System.out.println("Stack written to file: " + fileName);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
